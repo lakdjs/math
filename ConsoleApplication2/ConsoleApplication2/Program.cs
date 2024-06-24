@@ -19,27 +19,29 @@ namespace ConsoleApplication2
                 doors[i] = 0;
             }
 
-            doors[doors.Length - 1] = 1;
+            
             int wins = 0;
             int los = 0;
 
             for (int i = 0; i < it; i++)
             {
+                int rightIndex = rnd.Next(0, doors.Length);
+                doors[rightIndex] = 1;
                 int choice = rnd.Next(0, doorsQuantity);
                     
-                if (stayOfChange && choice == doors[doors.Length])
+                if (stayOfChange && choice == doors[rightIndex])
                 {
                     wins++;
                 }
-                else if(!stayOfChange && choice == doors[doors.Length])
+                else if(!stayOfChange && choice == doors[rightIndex])
                 {
                     los++;
                 }
-                else if (stayOfChange && choice != doors[doors.Length])
+                else if (stayOfChange && choice != doors[rightIndex])
                 {
                     los++;
                 }
-                else if (!stayOfChange && choice != doors[doors.Length])
+                else if (!stayOfChange && choice != doors[rightIndex])
                 {
                     wins++;
                 }
